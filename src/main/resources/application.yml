@@ -1,0 +1,60 @@
+spring:
+  kafka:
+    security:
+      protocol: "PLAINTEXT"
+#      protocol: "SSL"
+    bootstrap-servers: 172.26.38.167:9092,172.26.38.167:9091
+#    bootstrap-servers: localhost:29092,localhost:39092
+#    bootstrap-servers: d5uasp-apc003lk.corp.dev.vtb:9092,d5uasp-apc003lk.corp.dev.vtb:9092,d5uasp-apc004lk.corp.dev.vtb:9092,d5uasp-apc018lk.corp.dev.vtb:9092,d5uasp-apc025lk.corp.dev.vtb:9092
+    ssl:
+
+      trust-store-password: kafkauasppassword
+      key-store-password: kafkauasppassword
+      key-password: kafkauasppassword
+      key-store-location:  classpath:kafka-trust.pfx
+      trust-store-location: classpath:APD00.13.01-USBP-kafka-cluster-uasp.pfx
+
+    consumer:
+      group-id: demo-group-id
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+kafka:
+  bootstrapAddress: 172.26.38.167:9092,172.26.38.167:9091
+#  bootstrapAddress: localhost:29092,localhost:39092
+
+
+load:
+  source:
+    dev__pp_fl_uasp__opyp: C:\Work\temp\kafka-util\src\main\resources\process
+
+
+#load:
+#  source:
+#    filterTopic: C:\Work\temp\kafka-util\src\main\resources\FilesForTopic
+#load:
+#  source:
+#    rate-topic: /home/vood/IdeaProjects/kafka-util/src/main/resources/rates
+
+#    rate-topic: C:\Work\temp\kafka-util\src\main\resources\rates
+#    main-topic: C:\Work\temp\kafka-util\src\main\resources\rateReq
+#    rate_in_1: C:\Work\temp\kafka-util\src\main\resources\enrichRate
+#    DEV.OUTER.CBR.RATES: C:\Work\temp\kafka-util\src\main\resources\enrichRate
+topic:
+  create:
+    numPartitions: 2
+    replicationFactor: 2
+    names:
+      - dev_bevents__realtime__enrichment__prof__transactions__dlq
+      - dev_bevents__realtime__input_converter__prof__transactions__uaspdto
+      - dev_bevents__realtime__enrichment__prof__transactions__uaspdto
+      - dev_bevents__batch__ca_regulatory_client_id_of_profile__uaspdto_dlq
+      - dev_bevents__batch__ca_regulatory_client_id_of_profile__uaspdto
+      - dev_bevents__batch__ca_regulatory_client_id_of_profile__uaspdto_status
+#  delete:
+#    - q1
+#    - q2
