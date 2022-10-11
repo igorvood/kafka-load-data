@@ -17,6 +17,8 @@ data class SomeDto(
     val dataString: Map<String, String>,
     val dataBoolean: Map<String, Boolean>,
     val uuid: String,
-    val process_timestamp: Long
+    val process_timestamp: Long,
+    @Serializable(with = DecimalAsStringSerializer::class)
+    val sadad : BigDecimal
 )
 //Serializer has not been found for type 'BigDecimal'. To use context serializer as fallback, explicitly annotate type or property with @Contextual
