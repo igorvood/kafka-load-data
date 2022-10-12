@@ -12,11 +12,11 @@ class SomeDtoSerializeTest {
     @Test
     fun asdasd(){
         val someDto = SomeDto("str", mutableMapOf("asdas" to 1), mutableMapOf(),mutableMapOf(),mutableMapOf(),mutableMapOf(),mutableMapOf(),"Sad",0, BigDecimal(12))
-        val str = Json.encodeToString(someDto)
+        val str = ru.vood.kafkaloaddata.dto.asd.format.encodeToString(someDto)
 
         println(str)
 
-        println(Json.decodeFromString<SomeDto>(str))
+//        println(format.decodeFromString<SomeDto>(str))
 
     }
 }

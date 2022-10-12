@@ -1,6 +1,8 @@
 package ru.vood.kafkaloaddata.dto
 
 import kotlinx.serialization.KSerializer
+import kotlinx.serialization.builtins.MapSerializer
+import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.descriptors.PrimitiveKind
 import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
 import kotlinx.serialization.descriptors.SerialDescriptor
@@ -10,22 +12,18 @@ import java.math.BigDecimal
 
 object DecimalMapAsStringSerializer : KSerializer<Map<String, BigDecimal>> {
 
+
+    val mapSerializer = MapSerializer(String.serializer(), DecimalAsStringSerializer)
+
     override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("decimalStringMap", PrimitiveKind.STRING)
 
     override fun deserialize(decoder: Decoder): Map<String, BigDecimal> {
-        TODO("Not yet implemented")
+        val deserialize = mapSerializer.deserialize(decoder)
+        return deserialize
     }
 
     override fun serialize(encoder: Encoder, value: Map<String, BigDecimal>) {
-        TODO("Not yet implemented")
+        mapSerializer.serialize(encoder, value)
     }
 
-    //    override fun serialize(encoder: Encoder, value: BigDecimal) {
-//        encoder.encodeString(value.toPlainString())
-//    }
-//
-//    override fun deserialize(decoder: Decoder): BigDecimal {
-//        val string = decoder.decodeString()
-//        return BigDecimal(string)
-//    }
 }
