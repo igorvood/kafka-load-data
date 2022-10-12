@@ -13,10 +13,12 @@ data class SomeDto(
     val dataLong: Map<String, Long>,
     val dataFloat: Map<String, Float>,
     val dataDouble: Map<String, Double>,
-//    @Serializable(with = DecimalAsStringSerializer::class)
+
+//    @Serializable(with = DecimalMapAsStringSerializer::class)
 //    @Contextual
+//    val dataDecimal: Map<String, BigDecimal>,
     val dataDecimal: Map<String, Double>,
-//    val dataDecimal1: List< BigDecimal> = mutableListOf(),
+
     val dataString: Map<String, String>,
     val dataBoolean: Map<String, Boolean>,
     val uuid: String,
