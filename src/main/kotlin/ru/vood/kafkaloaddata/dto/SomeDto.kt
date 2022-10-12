@@ -2,7 +2,6 @@ package ru.vood.kafkaloaddata.dto
 
 import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
-import ru.vood.kafkaloaddata.dto.asd.sadas
 import java.math.BigDecimal
 
 
@@ -15,8 +14,8 @@ data class SomeDto(
     val dataFloat: Map<String, Float>,
     val dataDouble: Map<String, Double>,
 //    @Serializable(with = DecimalAsStringSerializer::class)
-    @Contextual
-    val dataDecimal: Map<String, BigDecimal>,
+//    @Contextual
+    val dataDecimal: Map<String, Double>,
 //    val dataDecimal1: List< BigDecimal> = mutableListOf(),
     val dataString: Map<String, String>,
     val dataBoolean: Map<String, Boolean>,
