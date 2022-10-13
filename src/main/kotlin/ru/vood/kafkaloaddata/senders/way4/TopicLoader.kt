@@ -17,7 +17,7 @@ interface TopicLoader<T : IdentityMy> {
     fun beginTime() = Date().time
 
     suspend fun loadTopic(): Unit {
-        logger.info("run ${messageProducer.toString()}")
+        logger.info("run $messageProducer")
 
         val beginTime = beginTime()
         var cnt: Long = 0
