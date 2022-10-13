@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.kafka.KafkaProperties
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.Scope
 import org.springframework.kafka.core.DefaultKafkaProducerFactory
 import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.kafka.core.ProducerFactory
@@ -50,6 +51,7 @@ class KafkaProducerConfig {
     }
 
     @Bean
+    @Scope("prototype")
     fun kafkaTemplate(pf: ProducerFactory<String?, String>): KafkaTemplate<String?, String> {
         return KafkaTemplate(pf)
     }
