@@ -26,7 +26,7 @@ data class SomeDto(
 //    @Serializable(with = DecimalAsStringSerializer::class)
     @Contextual
     val sadad: BigDecimal
-): IdentityMy {
+): Identity {
     override fun id(): String = id
 }
 

@@ -1,11 +1,11 @@
 package ru.vood.kafkaloaddata.senders.way4
 
 import org.slf4j.Logger
-import ru.vood.kafkaloaddata.dto.IdentityMy
+import ru.vood.kafkaloaddata.dto.Identity
 import ru.vood.kafkaloaddata.producer.MessageProducerInterface
 import java.util.*
 
-interface TopicLoader<T : IdentityMy> {
+interface TopicLoader<T : Identity> {
     val logger: Logger
 
     val batchSize: Int
@@ -38,8 +38,9 @@ interface TopicLoader<T : IdentityMy> {
 
             if (cnt.toInt() % batchSize == 0) {
                 val endTime = Date().time
-                val d = batchSize.toDouble() * (endTime - beginTime).toDouble() / cnt.toDouble()
-                logger.info("send $cnt reccord. $d milliseconds per  $batchSize. TopicName $topicName")
+                val toDouble = (endTime - beginTime).toDouble()
+                val d = 1000 *  cnt.toDouble()/ toDouble
+                logger.info("send $cnt record. $d records per second. TopicName $topicName, seconds ${toDouble/1000}")
             }
 
 

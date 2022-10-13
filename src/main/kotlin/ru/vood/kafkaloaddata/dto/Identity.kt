@@ -1,6 +1,6 @@
 package ru.vood.kafkaloaddata.dto
 
-interface IdentityMy {
+interface Identity {
 
     fun id(): String
 }
