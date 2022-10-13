@@ -1,6 +1,7 @@
 package ru.vood.kafkaloaddata.config
 
 import org.apache.kafka.clients.producer.ProducerConfig
+import org.apache.kafka.clients.producer.internals.DefaultPartitioner
 import org.apache.kafka.common.serialization.StringSerializer
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties
 import org.springframework.boot.context.properties.EnableConfigurationProperties
@@ -39,6 +40,11 @@ class KafkaProducerConfig {
         mutableMap["ssl.truststore.type"] = kafkaProperties.ssl.trustStoreType
 
         mutableMap["retries"] = kafkaProperties.producer.retries
+
+        mutableMap.put(
+            ProducerConfig.PARTITIONER_CLASS_CONFIG,
+            DefaultPartitioner::class.java
+        )
 
         return DefaultKafkaProducerFactory(mutableMap)
     }
