@@ -1,4 +1,4 @@
-package ru.vood.kafka.tools.kafkautil.producer
+package ru.vood.kafkaloaddata.producer
 
 interface MessageProducerInterface<K, V> {
 
