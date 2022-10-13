@@ -16,9 +16,10 @@ interface TopicLoader<T : IdentityMy> {
 
     fun beginTime() = Date().time
 
-    fun loadTopic(): Unit {
+    suspend fun loadTopic(): Unit {
         val beginTime = beginTime()
         var cnt: Long = 0
+        val topicName = this.javaClass.simpleName
 
         while (true) {
 
@@ -26,8 +27,9 @@ interface TopicLoader<T : IdentityMy> {
 
             val newDto = generateFun(cnt)
 
+
             messageProducer.sendMessage(
-                this.javaClass.simpleName,
+                topicName,
                 newDto.id(),
                 json(newDto)
             )
@@ -35,7 +37,7 @@ interface TopicLoader<T : IdentityMy> {
             if (cnt.toInt() % batchSize == 0) {
                 val endTime = Date().time
                 val d = batchSize.toDouble() * (endTime - beginTime).toDouble() / cnt.toDouble()
-                logger.info("send $cnt reccord. $d milliseconds per  $batchSize")
+                logger.info("send $cnt reccord. $d milliseconds per  $batchSize. TopicName $topicName")
             }
 
 
