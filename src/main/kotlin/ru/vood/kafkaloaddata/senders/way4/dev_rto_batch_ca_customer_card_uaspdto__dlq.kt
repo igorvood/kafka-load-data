@@ -16,7 +16,8 @@ class dev_rto_batch_ca_customer_card_uaspdto__dlq(
 
     override val logger: Logger = LoggerFactory.getLogger(dev_rto_batch_ca_customer_card_uaspdto__dlq::class.java)
 
-    override val batchSize = 100000
+    override val userCnt: Int
+        get() = 10000
 
     override val generateFun: (Long) -> SomeDto = { id ->
         SomeDto(

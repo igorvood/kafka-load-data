@@ -4,13 +4,15 @@ import org.slf4j.Logger
 import ru.vood.kafkaloaddata.dto.Identity
 import ru.vood.kafkaloaddata.producer.MessageProducerInterface
 import java.util.*
+import kotlin.math.abs
 
 interface TopicLoader<T : Identity> {
     val logger: Logger
 
-    val batchSize: Int
     val messageProducer: MessageProducerInterface<String, String>
     val generateFun: (Long) -> T
+
+    val userCnt:Int
 
     fun json(t: T): String
 
@@ -18,6 +20,7 @@ interface TopicLoader<T : Identity> {
 
     suspend fun loadTopic(): Unit {
         logger.info("run $messageProducer")
+        val batchSize: Int = 100000
 
         val beginTime = beginTime()
         var cnt: Long = 0
@@ -26,8 +29,9 @@ interface TopicLoader<T : Identity> {
         while (true) {
 
             cnt += 1
+            val abs = abs(UUID.randomUUID().toString().hashCode() % userCnt).toLong()
 
-            val newDto = generateFun(cnt)
+            val newDto = generateFun(abs)
 
 
             messageProducer.sendMessage(
