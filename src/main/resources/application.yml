@@ -26,3 +26,4 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringDeserializer
       acks: 1
       retries: 1
+      batch-size: 1000000

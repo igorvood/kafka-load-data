@@ -41,6 +41,8 @@ class KafkaProducerConfig {
         mutableMap["ssl.truststore.type"] = kafkaProperties.ssl.trustStoreType
 
         mutableMap["retries"] = kafkaProperties.producer.retries
+        mutableMap["batch.size"] = kafkaProperties.producer.batchSize.toBytes().toString()
+
 
         mutableMap.put(
             ProducerConfig.PARTITIONER_CLASS_CONFIG,
