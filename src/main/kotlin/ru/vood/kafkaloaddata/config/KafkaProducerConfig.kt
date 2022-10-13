@@ -53,7 +53,6 @@ class KafkaProducerConfig {
     }
 
     @Bean
-    @Scope("prototype")
     fun kafkaTemplate(pf: ProducerFactory<String?, String>): KafkaTemplate<String?, String> {
         return KafkaTemplate(pf)
     }
