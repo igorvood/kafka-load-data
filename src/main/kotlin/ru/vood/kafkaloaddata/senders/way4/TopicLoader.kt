@@ -14,6 +14,8 @@ interface TopicLoader<T : Identity> {
 
     val userCnt:Int
 
+    val totalSendRecCnt: Int
+
     fun json(t: T): String
 
     fun beginTime() = Date().time
@@ -26,7 +28,7 @@ interface TopicLoader<T : Identity> {
         var cnt: Long = 0
         val topicName = this.javaClass.simpleName
 
-        while (true) {
+        while ((totalSendRecCnt==-1) || totalSendRecCnt>=cnt) {
 
             cnt += 1
             val abs = abs(UUID.randomUUID().toString().hashCode() % userCnt).toLong()
@@ -49,6 +51,10 @@ interface TopicLoader<T : Identity> {
 
 
         }
+        val endTime = Date().time
+        val toDouble = (endTime - beginTime).toDouble()
+
+        logger.info("Finish!!! Total seconds ${toDouble / 1000} $topicName")
     }
 
 

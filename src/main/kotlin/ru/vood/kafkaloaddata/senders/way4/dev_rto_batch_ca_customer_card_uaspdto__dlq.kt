@@ -19,6 +19,10 @@ class dev_rto_batch_ca_customer_card_uaspdto__dlq(
     override val userCnt: Int
         get() = 10000
 
+    override val totalSendRecCnt: Int
+        get() = 1000000
+
+
     override val generateFun: (Long) -> SomeDto = { id ->
         SomeDto(
             id.toString(),
