@@ -17,7 +17,8 @@ class CaseWay4Runner(
     override fun run(vararg args: String?) {
         crScope.launch {
 
-            launch { dev_ivr__uasp_realtime__input_converter__mortgage__dlq.loadTopic() }
+            val async = async { dev_ivr__uasp_realtime__input_converter__mortgage__dlq.loadTopic() }
+            async.await()
             launch { dev_rto_batch_ca_customer_card_uaspdto__dlq.loadTopic() }
         }
     }

@@ -47,6 +47,9 @@ interface TopicLoader<T : Identity> {
                 val toDouble = (endTime - beginTime).toDouble()
                 val d = 1000 *  cnt.toDouble()/ toDouble
                 logger.info("send $cnt record. $d records per second. TopicName $topicName, seconds ${toDouble/1000}")
+//                if (totalSendRecCnt==-1) {
+//                    Thread.sleep(30000)
+//                }
             }
 
 
