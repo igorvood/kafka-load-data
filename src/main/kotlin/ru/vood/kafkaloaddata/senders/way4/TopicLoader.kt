@@ -1,6 +1,7 @@
 package ru.vood.kafkaloaddata.senders.way4
 
 import org.slf4j.Logger
+import ru.vood.kafkaloaddata.config.prop.CountProperties
 import ru.vood.kafkaloaddata.dto.Identity
 import ru.vood.kafkaloaddata.producer.MessageProducerInterface
 import java.util.*
@@ -12,11 +13,8 @@ interface TopicLoader<T : Identity> {
     val messageProducer: MessageProducerInterface<String, String>
     val generateFun: (Long) -> T
 
-    val userCnt:Int
-
-    val totalSendRecCnt: Int
-
-    fun json(t: T): String
+    val сountProperties: CountProperties
+   fun json(t: T): String
 
     fun beginTime() = Date().time
 
@@ -28,10 +26,10 @@ interface TopicLoader<T : Identity> {
         var cnt: Long = 0
         val topicName = this.javaClass.simpleName
 
-        while ((totalSendRecCnt==-1) || totalSendRecCnt>=cnt) {
+        while ((сountProperties.totalSendRecCnt==-1) || сountProperties.totalSendRecCnt>cnt) {
 
             cnt += 1
-            val abs = abs(UUID.randomUUID().toString().hashCode() % userCnt).toLong()
+            val abs = abs(UUID.randomUUID().toString().hashCode() % сountProperties.userCnt).toLong()
 
             val newDto = generateFun(abs)
 

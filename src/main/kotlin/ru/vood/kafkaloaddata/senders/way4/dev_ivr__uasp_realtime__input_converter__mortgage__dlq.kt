@@ -16,17 +16,10 @@ import java.math.BigDecimal
 @EnableConfigurationProperties(CountProperties::class)
 class dev_ivr__uasp_realtime__input_converter__mortgage__dlq(
     override val messageProducer: MessageProducerInterface<String, String>,
-    private val сountProperties: CountProperties
+    override val сountProperties: CountProperties
 ) : TopicLoader<SomeDto> {
 
     override val logger: Logger = LoggerFactory.getLogger(dev_ivr__uasp_realtime__input_converter__mortgage__dlq::class.java)
-
-    override val userCnt: Int
-        get() = 10000
-
-    override val totalSendRecCnt: Int
-        get() = 1
-
 
     override val generateFun: (Long) -> SomeDto = { id ->
         SomeDto(

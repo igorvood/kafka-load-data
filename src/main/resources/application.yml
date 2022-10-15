@@ -16,5 +16,5 @@ spring:
 send:
   kafka:
     cnt:
-      userCnt: 1
+      userCnt: 10000
       totalSendRecCnt: 1
