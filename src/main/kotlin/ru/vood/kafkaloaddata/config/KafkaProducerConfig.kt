@@ -1,5 +1,6 @@
 package ru.vood.kafkaloaddata.config
 
+import arrow.core.Option
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.clients.producer.internals.DefaultPartitioner
 import org.apache.kafka.common.serialization.StringSerializer
@@ -30,15 +31,20 @@ class KafkaProducerConfig {
 
         mutableMap["security.protocol"] = kafkaProperties.security.protocol
 
-        mutableMap["ssl.truststore.location"] = kafkaProperties.ssl.trustStoreLocation.uri.toPath().toString()
-        mutableMap["ssl.keystore.location"] = kafkaProperties.ssl.keyStoreLocation.uri.toPath().toString()
+        if (kafkaProperties.security.protocol =="SSL")
+             {
 
-        mutableMap["ssl.truststore.password"] = kafkaProperties.ssl.trustStorePassword
-        mutableMap["ssl.keystore.password"] = kafkaProperties.ssl.keyStorePassword
-        mutableMap["ssl.key.password"] = kafkaProperties.ssl.keyPassword
+                 val ssl = kafkaProperties.ssl
+                 mutableMap["ssl.truststore.location"] = ssl.trustStoreLocation.uri.toPath().toString()
+                mutableMap["ssl.keystore.location"] = ssl.keyStoreLocation.uri.toPath().toString()
 
-        mutableMap["ssl.keystore.type"] = kafkaProperties.ssl.keyStoreType
-        mutableMap["ssl.truststore.type"] = kafkaProperties.ssl.trustStoreType
+                mutableMap["ssl.truststore.password"] = ssl.trustStorePassword
+                mutableMap["ssl.keystore.password"] = ssl.keyStorePassword
+                mutableMap["ssl.key.password"] = ssl.keyPassword
+
+                mutableMap["ssl.keystore.type"] = ssl.keyStoreType
+                mutableMap["ssl.truststore.type"] = ssl.trustStoreType
+            }
 
         mutableMap["retries"] = kafkaProperties.producer.retries
         mutableMap["batch.size"] = kafkaProperties.producer.batchSize.toBytes().toString()

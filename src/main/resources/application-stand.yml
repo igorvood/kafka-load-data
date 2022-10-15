@@ -1,0 +1,29 @@
+spring:
+  kafka:
+    security:
+      #      protocol: "PLAINTEXT"
+      protocol: "SSL"
+    bootstrap-servers: d5uasp-kfc001lk.corp.dev.vtb:9092,d5uasp-kfc002lk.corp.dev.vtb:9092,d5uasp-kfc003lk.corp.dev.vtb:9092,d5uasp-kfc004lk.corp.dev.vtb:9092,d5uasp-kfc005lk.corp.dev.vtb:9092,d5uasp-kfc006lk.corp.dev.vtb:9092
+    #    bootstrap-servers: localhost:29092,localhost:39092
+    #    bootstrap-servers: d5uasp-apc003lk.corp.dev.vtb:9092,d5uasp-apc003lk.corp.dev.vtb:9092,d5uasp-apc004lk.corp.dev.vtb:9092,d5uasp-apc018lk.corp.dev.vtb:9092,d5uasp-apc025lk.corp.dev.vtb:9092
+    ssl:
+
+      trust-store-password: p9HrxNIXS4ekSBKKD0Dh<zL7a2!
+      key-store-password: p9HrxNIXS4ekSBKKD0Dh<zL7a2!
+      key-password: p9HrxNIXS4ekSBKKD0Dh<zL7a2!
+      key-store-location:  classpath:new_APD75-None-kafka-d5-client-uasp.pfx
+      trust-store-location: classpath:new_APD75-None-kafka-d5-client-uasp-truststore.pfx
+      key-store-type: PKCS12
+      trust-store-type: PKCS12
+
+    consumer:
+      group-id: demo-group-id
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-serializer: org.apache.kafka.common.serialization.StringDeserializer
+      acks: 1
+      retries: 1
+      batch-size: 1000000

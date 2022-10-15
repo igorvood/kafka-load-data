@@ -3,15 +3,19 @@ package ru.vood.kafkaloaddata.senders.way4
 import kotlinx.serialization.encodeToString
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.stereotype.Service
+import ru.vood.kafkaloaddata.config.prop.CountProperties
 import ru.vood.kafkaloaddata.dto.SerialisationConst
 import ru.vood.kafkaloaddata.dto.SomeDto
 import ru.vood.kafkaloaddata.producer.MessageProducerInterface
 import java.math.BigDecimal
 
 @Service
+@EnableConfigurationProperties(CountProperties::class)
 class dev_rto_batch_ca_customer_card_uaspdto__dlq(
-    override val messageProducer: MessageProducerInterface<String, String>
+    override val messageProducer: MessageProducerInterface<String, String>,
+    private val countProperties: CountProperties
 ) : TopicLoader<SomeDto> {
 
     override val logger: Logger = LoggerFactory.getLogger(dev_rto_batch_ca_customer_card_uaspdto__dlq::class.java)
