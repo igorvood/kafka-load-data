@@ -18,3 +18,10 @@ send:
     cnt:
       userCnt: 10000
       totalSendRecCnt: 1
+case:
+  caseList:
+    - name: caseWay4
+
+#logging:
+#  level:
+#    root: info

@@ -13,7 +13,6 @@ import ru.vood.kafkaloaddata.senders.TopicLoader
 import java.math.BigDecimal
 
 @Service
-@EnableConfigurationProperties(CountProperties::class)
 class dev_rto_batch_ca_customer_card_uaspdto__dlq(
     override val messageProducer: MessageProducerInterface<String, String>,
     override val сountProperties: CountProperties

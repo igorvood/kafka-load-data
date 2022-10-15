@@ -13,7 +13,6 @@ import ru.vood.kafkaloaddata.senders.TopicLoader
 import java.math.BigDecimal
 
 @Service
-@EnableConfigurationProperties(CountProperties::class)
 class dev_ivr__uasp_realtime__input_converter__mortgage__dlq(
     override val messageProducer: MessageProducerInterface<String, String>,
     override val сountProperties: CountProperties

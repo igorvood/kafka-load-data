@@ -4,8 +4,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.ConstructorBinding
 
 @ConstructorBinding
-@ConfigurationProperties(prefix = "send.kafka.cnt")
-data class CountProperties(
-    val userCnt: Int,
-    val totalSendRecCnt: Int
-)
+@ConfigurationProperties(prefix = "case")
+data class CaseListRunProperties(
+    val caseList: List<Case>
+){
+    data class Case(val name: String)
+}
