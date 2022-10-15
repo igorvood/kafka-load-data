@@ -3,6 +3,6 @@ spring:
     security:
       protocol: "PLAINTEXT"
 #      protocol: "SSL"
-    bootstrap-servers: 172.17.1.15:9092
+    bootstrap-servers: 172.17.1.15:29092,172.17.1.15:39092,172.17.1.15:49092
 #    bootstrap-servers: localhost:29092,localhost:39092
 #    bootstrap-servers: d5uasp-apc003lk.corp.dev.vtb:9092,d5uasp-apc003lk.corp.dev.vtb:9092,d5uasp-apc004lk.corp.dev.vtb:9092,d5uasp-apc018lk.corp.dev.vtb:9092,d5uasp-apc025lk.corp.dev.vtb:9092

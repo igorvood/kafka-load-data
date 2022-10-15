@@ -4,6 +4,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties
 
 @ConfigurationProperties(prefix = "send.kafka.cnt")
 data class CountProperties(
-    val userCnt: Int,
-    val totalSendRecCnt: Int
+    var userCnt: Int=0,
+    var totalSendRecCnt: Int=0
 )
