@@ -1,4 +1,4 @@
-package ru.vood.kafkaloaddata.senders.way4
+package ru.vood.kafkaloaddata.senders
 
 import org.slf4j.Logger
 import ru.vood.kafkaloaddata.config.prop.CountProperties

@@ -9,6 +9,7 @@ import ru.vood.kafkaloaddata.config.prop.CountProperties
 import ru.vood.kafkaloaddata.dto.SerialisationConst
 import ru.vood.kafkaloaddata.dto.SomeDto
 import ru.vood.kafkaloaddata.producer.MessageProducerInterface
+import ru.vood.kafkaloaddata.senders.TopicLoader
 import java.math.BigDecimal
 
 @Service
