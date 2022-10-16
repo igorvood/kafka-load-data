@@ -24,8 +24,8 @@ data class SomeDto(
     val uuid: String,
     val process_timestamp: Long,
 //    @Serializable(with = DecimalAsStringSerializer::class)
-    @Contextual
-    val sadad: BigDecimal
+//    @Contextual
+//    val sadad: BigDecimal
 ): Identity {
     override fun id(): String = id
 }

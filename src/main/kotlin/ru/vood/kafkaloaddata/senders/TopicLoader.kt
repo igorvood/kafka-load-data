@@ -13,7 +13,7 @@ interface TopicLoader<T : Identity> {
     val messageProducer: MessageProducerInterface<String, String>
     val generateFun: (Long) -> T
 
-    val сountProperties: CountProperties
+    val countProperties: CountProperties
    fun json(t: T): String
 
     fun beginTime() = Date().time
@@ -26,10 +26,10 @@ interface TopicLoader<T : Identity> {
         var cnt: Long = 0
         val topicName = this.javaClass.simpleName
 
-        while ((сountProperties.totalSendRecCnt==-1) || сountProperties.totalSendRecCnt>cnt) {
+        while ((countProperties.totalSendRecCnt==-1) || countProperties.totalSendRecCnt>cnt) {
 
             cnt += 1
-            val abs = abs(UUID.randomUUID().toString().hashCode() % сountProperties.userCnt).toLong()
+            val abs = abs(UUID.randomUUID().toString().hashCode() % countProperties.userCnt).toLong()
 
             val newDto = generateFun(abs)
 
