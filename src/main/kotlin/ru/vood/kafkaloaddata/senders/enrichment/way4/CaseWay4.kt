@@ -1,4 +1,4 @@
-package ru.vood.kafkaloaddata.senders.way4
+package ru.vood.kafkaloaddata.senders.enrichment.way4
 
 import kotlinx.coroutines.*
 import org.springframework.stereotype.Service

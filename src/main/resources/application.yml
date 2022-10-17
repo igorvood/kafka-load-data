@@ -21,7 +21,8 @@ send:
       totalSendRecCnt: 1
 case:
   caseList:
-    - name: caseWay4
+#    - name: caseWay4
+    - name: mutatorRunner
 
 #logging:
 #  level:
