@@ -2,5 +2,5 @@ package ru.vood.kafkaloaddata.dto
 
 interface Identity {
 
-    fun id(): String
+    fun id(): String?
 }

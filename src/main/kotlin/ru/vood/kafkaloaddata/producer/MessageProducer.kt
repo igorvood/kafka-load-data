@@ -1,5 +1,7 @@
 package ru.vood.kafkaloaddata.producer
 
+import arrow.core.Option
+import arrow.core.getOrElse
 import org.springframework.context.annotation.Scope
 import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Service
@@ -11,7 +13,7 @@ class MessageProducer(
 ) : MessageProducerInterface<String, String> {
 
     override fun sendMessage(topicName: String, key: String?, message: String) {
-        kafkaTemplate.send(topicName, 1, key!!, message)
+        kafkaTemplate.send(topicName, 1, Option.fromNullable(key).getOrElse { "Unknow" }, message)
     }
 
 

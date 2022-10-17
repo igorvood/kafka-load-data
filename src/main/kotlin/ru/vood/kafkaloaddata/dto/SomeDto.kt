@@ -1,14 +1,12 @@
 package ru.vood.kafkaloaddata.dto
 
-import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
-import java.math.BigDecimal
 
 
 @Serializable
 
 data class SomeDto(
-    val id: String,
+    val id: String?,
     val dataInt: Map<String, Int>,
     val dataLong: Map<String, Long>,
     val dataFloat: Map<String, Float>,
@@ -27,6 +25,6 @@ data class SomeDto(
 //    @Contextual
 //    val sadad: BigDecimal
 ): Identity {
-    override fun id(): String = id
+    override fun id(): String? = id
 }
 
