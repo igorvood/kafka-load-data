@@ -21,14 +21,14 @@ class dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto(
 
     override val generateFun: (Long) -> SomeDto = { id ->
         SomeDto(
-            id.toString(),
+            "global_id_$id",
             mutableMapOf(),
             mutableMapOf(),
             mutableMapOf(),
             mutableMapOf(),
             mutableMapOf(),
             mutableMapOf(),
-            mutableMapOf("is_mortgage" to false),
+            mutableMapOf("is_mortgage" to true),
             id.toString(),
             Calendar.getInstance().timeInMillis,
 

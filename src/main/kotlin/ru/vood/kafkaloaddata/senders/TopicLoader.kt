@@ -14,7 +14,7 @@ interface TopicLoader<T : Identity> {
     val generateFun: (Long) -> T
 
     val countProperties: CountProperties
-   fun json(t: T): String
+    fun json(t: T): String
 
     fun beginTime() = Date().time
 
@@ -26,14 +26,16 @@ interface TopicLoader<T : Identity> {
         var cnt: Long = 0
         val topicName = this.javaClass.simpleName
 
-        while ((countProperties.totalSendRecCnt==-1) || countProperties.totalSendRecCnt>cnt) {
+        while ((countProperties.totalSendRecCnt == -1) || countProperties.totalSendRecCnt > cnt) {
 
             cnt += 1
             val abs = abs(UUID.randomUUID().toString().hashCode() % countProperties.userCnt).toLong()
+//
+//            val abs = 3.toLong()
 
             val newDto = generateFun(abs)
 
-
+//            logger.info("Send ${json(newDto)}")
             messageProducer.sendMessage(
                 topicName,
                 newDto.id(),
@@ -43,8 +45,8 @@ interface TopicLoader<T : Identity> {
             if (cnt.toInt() % batchSize == 0) {
                 val endTime = Date().time
                 val toDouble = (endTime - beginTime).toDouble()
-                val d = 1000 *  cnt.toDouble()/ toDouble
-                logger.info("send $cnt record. $d records per second. TopicName $topicName, seconds ${toDouble/1000}")
+                val d = 1000 * cnt.toDouble() / toDouble
+                logger.info("send $cnt record. $d records per second. TopicName $topicName, seconds ${toDouble / 1000}")
 //                if (totalSendRecCnt==-1) {
 //                    Thread.sleep(30000)
 //                }
