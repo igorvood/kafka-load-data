@@ -21,9 +21,9 @@ send:
       totalSendRecCnt: 3000001
 case:
   caseList:
-#    - name: caseWay4
+    - name: caseWay4
 #    - name: mutatorRunner
-    - name: filterRunner
+#    - name: filterRunner
 
 #logging:
 #  level:

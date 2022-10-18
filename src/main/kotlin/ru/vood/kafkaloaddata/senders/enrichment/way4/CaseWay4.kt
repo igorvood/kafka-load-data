@@ -17,9 +17,9 @@ class CaseWay4(
 
     override fun runCase() {
         crScope.launch {
-            dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdto.loadTopic()
-            dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto.loadTopic()
-            dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto.loadTopic()
+            launch { dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdto.loadTopic() }
+            launch { dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto.loadTopic() }
+            launch { dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto.loadTopic() }
         }
     }
 }
