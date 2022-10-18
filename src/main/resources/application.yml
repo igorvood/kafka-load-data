@@ -13,16 +13,17 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringDeserializer
       acks: 1
       retries: 1
-      batch-size: 1000000
+#      batch-size: 1000000
 send:
   kafka:
     cnt:
-      userCnt: 1
-      totalSendRecCnt: 1
+      userCnt: 1000
+      totalSendRecCnt: 3000001
 case:
   caseList:
 #    - name: caseWay4
-    - name: mutatorRunner
+#    - name: mutatorRunner
+    - name: filterRunner
 
 #logging:
 #  level:

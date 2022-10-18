@@ -47,7 +47,7 @@ class KafkaProducerConfig {
             }
 
         mutableMap["retries"] = kafkaProperties.producer.retries
-        mutableMap["batch.size"] = kafkaProperties.producer.batchSize.toBytes().toString()
+//        mutableMap["batch.size"] = kafkaProperties.producer.batchSize?.toBytes().toString()
 
 
         mutableMap.put(

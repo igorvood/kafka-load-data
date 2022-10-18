@@ -15,15 +15,3 @@ spring:
       trust-store-location: classpath:new_APD75-None-kafka-d5-client-uasp-truststore.pfx
       key-store-type: PKCS12
       trust-store-type: PKCS12
-
-    consumer:
-      group-id: demo-group-id
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-serializer: org.apache.kafka.common.serialization.StringDeserializer
-      acks: 1
-      retries: 1
-      batch-size: 1000000
