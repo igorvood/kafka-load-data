@@ -11,7 +11,7 @@ class SomeDtoSerializeTest {
 
     @Test
     fun serialisationTest(){
-        val someDto = SomeDto("str", mutableMapOf("asdas" to 1), mutableMapOf(),mutableMapOf(),mutableMapOf(),mutableMapOf(),mutableMapOf(),mutableMapOf(),"Sad",0, BigDecimal(12))
+        val someDto = SomeDto("str", mutableMapOf("asdas" to 1), mutableMapOf(),mutableMapOf(),mutableMapOf(),mutableMapOf(),mutableMapOf(),mutableMapOf(),"Sad",0/*, BigDecimal(12)*/)
         val str = customJson.encodeToString(someDto)
 
         println(str)
