@@ -23,7 +23,8 @@ send:
       totalSendRecCnt: 1000000
 case:
   caseList:
-    - name: caseWay4
+    - name: case55
+#    - name: caseWay4
 #    - name: mutatorRunner
 #    - name: filterRunner
 
