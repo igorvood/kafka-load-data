@@ -2,8 +2,8 @@ server:
   port: 8001
 spring:
   profiles:
-#    active: local
-    active: stand
+    active: local
+#    active: stand
   kafka:
     consumer:
       group-id: demo-group-id
@@ -19,8 +19,8 @@ spring:
 send:
   kafka:
     cnt:
-      userCnt: 100000000
-      totalSendRecCnt: 10000000
+      userCnt: 1
+      totalSendRecCnt: 1
 case:
   caseList:
 #    - name: case55
