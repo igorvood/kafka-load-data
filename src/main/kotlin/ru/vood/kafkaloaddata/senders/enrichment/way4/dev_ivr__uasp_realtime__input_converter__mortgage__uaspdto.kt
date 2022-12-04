@@ -8,17 +8,21 @@ import ru.vood.kafkaloaddata.config.prop.CountProperties
 import ru.vood.kafkaloaddata.dto.SerialisationConst
 import ru.vood.kafkaloaddata.dto.SomeDto
 import ru.vood.kafkaloaddata.producer.MessageProducerInterface
-import ru.vood.kafkaloaddata.senders.TopicLoader
-import ru.vood.kafkaloaddata.senders.enrichment.way4Flat.dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto
+import ru.vood.kafkaloaddata.senders.ToTopicLoader
+import ru.vood.kafkaloaddata.senders.enrichment.way4Flat.dev_ivr__uasp_realtime__input_converter__mortgage__uaspdtoFlat
 import java.util.*
 
-//@Service
+@Service
 class dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto(
     override val messageProducer: MessageProducerInterface<String, String>,
     override val countProperties: CountProperties
-) : TopicLoader<SomeDto> {
+) : ToTopicLoader<SomeDto> {
 
-    override val logger: Logger = LoggerFactory.getLogger(dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto::class.java)
+    override val topicName: String
+        get() = "dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto"
+
+    override val logger: Logger =
+        LoggerFactory.getLogger(dev_ivr__uasp_realtime__input_converter__mortgage__uaspdtoFlat::class.java)
 
     override val generateFun: (Long) -> SomeDto = { id ->
         SomeDto(
@@ -33,7 +37,7 @@ class dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto(
             id.toString(),
             Calendar.getInstance().timeInMillis,
 
-        )
+            )
     }
 
     override fun json(t: SomeDto): String = SerialisationConst.customJson.encodeToString(t)

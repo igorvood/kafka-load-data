@@ -8,36 +8,38 @@ import org.springframework.stereotype.Service
 import ru.vood.kafkaloaddata.config.prop.CountProperties
 import ru.vood.kafkaloaddata.dto.Identity
 import ru.vood.kafkaloaddata.dto.SerialisationConst
-import ru.vood.kafkaloaddata.dto.SomeDto
 import ru.vood.kafkaloaddata.producer.MessageProducerInterface
-import ru.vood.kafkaloaddata.senders.TopicLoader
-import java.util.*
+import ru.vood.kafkaloaddata.senders.ToTopicLoader
 
 @Service
 class dev__pp_fl_uasp__opyp(
     override val messageProducer: MessageProducerInterface<String, String>,
     override val countProperties: CountProperties
-) : TopicLoader<PackageServiceInDto> {
+) : ToTopicLoader<PackageServiceInDto> {
+
+    override val topicName: String
+        get() = "dev__pp_fl_uasp__opyp"
 
     override val logger: Logger = LoggerFactory.getLogger(
-        dev__pp_fl_uasp__opyp::class.java)
+        dev__pp_fl_uasp__opyp::class.java
+    )
 
     override val generateFun: (Long) -> PackageServiceInDto = { id ->
         PackageServiceInDto(
-            "OPERATION_ID"+id.toString(),
-            "MDM_ID"+id.toString(),
-            "EVENT_DTTM"+id.toString(),
-            "NEW_PACKAGE"+id.toString(),
-            "OLD_PACKAGE"+id.toString(),
+            "OPERATION_ID" + id.toString(),
+            "MDM_ID" + id.toString(),
+            "EVENT_DTTM" + id.toString(),
+            "NEW_PACKAGE" + id.toString(),
+            "OLD_PACKAGE" + id.toString(),
 
-        )
+            )
     }
 
     override fun json(t: PackageServiceInDto): String = SerialisationConst.customJson.encodeToString(t)
 
 
-
 }
+
 @Serializable
 data class PackageServiceInDto(
     val OPERATION_ID: String,
@@ -45,6 +47,6 @@ data class PackageServiceInDto(
     val EVENT_DTTM: String,
     val NEW_PACKAGE: String,
     val OLD_PACKAGE: String,
-): Identity{
+) : Identity {
     override fun id(): String? = OPERATION_ID
 }

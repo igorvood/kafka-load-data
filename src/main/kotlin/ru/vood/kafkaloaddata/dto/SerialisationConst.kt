@@ -11,7 +11,7 @@ object SerialisationConst {
 
     val sadas = MapSerializer(String.serializer(), DecimalAsStringSerializer)
 
-    val customJson =   Json {
+    val customJson = Json {
         serializersModule = SerializersModule {
             this.contextual(String.serializer())
             contextual(Int.serializer())

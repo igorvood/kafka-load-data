@@ -7,8 +7,10 @@ import ru.vood.kafkaloaddata.producer.MessageProducerInterface
 import java.util.*
 import kotlin.math.abs
 
-interface TopicLoader<T : Identity> {
+interface ToTopicLoader<T : Identity> {
     val logger: Logger
+
+    val topicName: String
 
     val messageProducer: MessageProducerInterface<String, String>
     val generateFun: (Long) -> T
@@ -24,7 +26,7 @@ interface TopicLoader<T : Identity> {
 
         val beginTime = beginTime()
         var cnt: Long = 0
-        val topicName = this.javaClass.simpleName
+//        val topicName = this.javaClass.simpleName
 
         while ((countProperties.totalSendRecCnt == -1) || countProperties.totalSendRecCnt > cnt) {
 

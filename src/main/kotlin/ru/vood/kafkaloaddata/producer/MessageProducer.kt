@@ -14,7 +14,7 @@ class MessageProducer(
 
     override fun sendMessage(topicName: String, key: String?, message: String) {
 //        kafkaTemplate.send(topicName, 1, Option.fromNullable(key).getOrElse { "Unknow" }, message)
-        kafkaTemplate.send(topicName,  Option.fromNullable(key).getOrElse { "Unknow" }, message)
+        kafkaTemplate.send(topicName, Option.fromNullable(key).getOrElse { "Unknow" }, message)
     }
 
 

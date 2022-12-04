@@ -10,27 +10,34 @@ import ru.vood.kafkaloaddata.config.prop.CaseListRunProperties
 class BatchSend(
     val caseRunners: Map<String, CaseRunner>,
     val caseListRunProperties: CaseListRunProperties
-    ) : CommandLineRunner {
+) : CommandLineRunner {
 
 
-    private fun validate(){
+    private fun validate() {
         val notFoundKeys = caseListRunProperties.caseList.map { it.name }
             .filter { !caseRunners.containsKey(it) }
 
-        if (notFoundKeys.isNotEmpty())
-        {
-            throw  IllegalStateException("${notFoundKeys.size} Cases  $notFoundKeys not found in\n${caseRunners.keys.joinToString("\n")}")
+        if (notFoundKeys.isNotEmpty()) {
+            throw IllegalStateException(
+                "${notFoundKeys.size} Cases  $notFoundKeys not found in\n${
+                    caseRunners.keys.joinToString(
+                        "\n"
+                    )
+                }"
+            )
         }
 
 
     }
+
     override fun run(vararg args: String?) {
         validate()
         caseListRunProperties.caseList
-            .forEach {caseName ->
+            .forEach { caseName ->
                 Option.fromNullable(caseRunners.get(caseName.name))
                     .map { srv -> srv.runCase() }
-                    .orElse { throw  IllegalStateException("Case $caseName not found in\n${caseRunners.keys.joinToString("\n")}")
+                    .orElse {
+                        throw IllegalStateException("Case $caseName not found in\n${caseRunners.keys.joinToString("\n")}")
                     }
 
             }
