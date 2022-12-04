@@ -9,7 +9,7 @@ import ru.vood.kafkaloaddata.dto.SerialisationConst
 import ru.vood.kafkaloaddata.dto.SomeDto
 import ru.vood.kafkaloaddata.producer.MessageProducerInterface
 import ru.vood.kafkaloaddata.senders.TopicLoader
-import ru.vood.kafkaloaddata.senders.enrichment.way4.dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto
+import ru.vood.kafkaloaddata.senders.enrichment.way4Flat.dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto
 import java.util.*
 
 @Service

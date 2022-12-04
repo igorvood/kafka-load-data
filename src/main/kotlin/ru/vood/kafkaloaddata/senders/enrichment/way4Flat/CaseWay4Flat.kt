@@ -1,13 +1,12 @@
-package ru.vood.kafkaloaddata.senders.enrichment.way4
+package ru.vood.kafkaloaddata.senders.enrichment.way4Flat
 
 import kotlinx.coroutines.*
 import org.springframework.stereotype.Service
 import ru.vood.kafkaloaddata.senders.CaseRunner
-import ru.vood.kafkaloaddata.senders.enrichment.way4Flat.dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdto
-import ru.vood.kafkaloaddata.senders.enrichment.way4Flat.dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto
+import ru.vood.kafkaloaddata.senders.enrichment.way4.dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto
 
-//@Service
-class CaseWay4(
+@Service
+class CaseWay4Flat(
     val dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdto: dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdto,
     val dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto: dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto,
     val dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto: dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto
@@ -20,8 +19,8 @@ class CaseWay4(
     override fun runCase() {
         crScope.launch {
             launch { dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdto.loadTopic() }
-            launch { dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto.loadTopic() }
-            launch { dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto.loadTopic() }
+//            launch { dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto.loadTopic() }
+//            launch { dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto.loadTopic() }
         }
     }
 }

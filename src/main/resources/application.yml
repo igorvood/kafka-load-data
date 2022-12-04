@@ -24,7 +24,8 @@ send:
 case:
   caseList:
 #    - name: case55
-    - name: caseWay4
+#    - name: caseWay4
+    - name: caseWay4Flat
 #    - name: mutatorRunner
 #    - name: filterRunner
 
