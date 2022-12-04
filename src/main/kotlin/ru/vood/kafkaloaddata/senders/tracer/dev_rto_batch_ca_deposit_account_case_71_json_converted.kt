@@ -1,4 +1,4 @@
-package ru.vood.kafkaloaddata.senders.enrichment.way4
+package ru.vood.kafkaloaddata.senders.tracer
 
 import kotlinx.serialization.encodeToString
 import org.slf4j.Logger
@@ -9,22 +9,21 @@ import ru.vood.kafkaloaddata.dto.SerialisationConst
 import ru.vood.kafkaloaddata.dto.SomeDto
 import ru.vood.kafkaloaddata.producer.MessageProducerInterface
 import ru.vood.kafkaloaddata.senders.ToTopicLoader
+import ru.vood.kafkaloaddata.senders.enrichment.way4.dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto
 import java.util.*
 
 @Service
-class dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto(
+class dev_rto_batch_ca_deposit_account_case_71_json_converted (
     override val messageProducer: MessageProducerInterface<String, String>,
     override val countProperties: CountProperties
 ) : ToTopicLoader<SomeDto> {
 
     override val topicName: String
-        get() = "dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto"
+        get() = "dev_rto_batch_ca_deposit_account_case_71_json_converted"
+
     override val logger: Logger = LoggerFactory.getLogger(
         dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto::class.java
     )
-    override val timeOut: Optional<Int>
-        get() = Optional.empty()
-
 
     override val generateFun: (Long) -> SomeDto = { id ->
         SomeDto(
@@ -40,6 +39,8 @@ class dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto(
             Calendar.getInstance().timeInMillis,
         )
     }
+    override val timeOut: Optional<Int>
+        get() = Optional.of(5000)
 
     override fun json(t: SomeDto): String = SerialisationConst.customJson.encodeToString(t)
 

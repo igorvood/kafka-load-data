@@ -10,6 +10,7 @@ import ru.vood.kafkaloaddata.dto.Identity
 import ru.vood.kafkaloaddata.dto.SerialisationConst
 import ru.vood.kafkaloaddata.producer.MessageProducerInterface
 import ru.vood.kafkaloaddata.senders.ToTopicLoader
+import java.util.*
 
 @Service
 class dev_ivr__uasp_realtime__input_converter__mortgage__uaspdtoFlat(
@@ -29,6 +30,9 @@ class dev_ivr__uasp_realtime__input_converter__mortgage__uaspdtoFlat(
             true,
         )
     }
+    override val timeOut: Optional<Int>
+        get() = Optional.empty()
+
 
     override fun json(t: MortageDto): String = SerialisationConst.customJson.encodeToString(t)
 

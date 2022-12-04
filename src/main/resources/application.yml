@@ -19,13 +19,14 @@ spring:
 send:
   kafka:
     cnt:
-      userCnt: 1
-      totalSendRecCnt: 1
+      userCnt: 1000000
+      totalSendRecCnt: 1000
 case:
   caseList:
 #    - name: case55
 #    - name: caseWay4
-    - name: caseWay4Flat
+#    - name: caseWay4Flat
+    - name: caseTracer
 #    - name: mutatorRunner
 #    - name: filterRunner
 

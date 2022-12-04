@@ -25,6 +25,9 @@ class dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdto(
         dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdtoFlat::class.java
     )
 
+    override val timeOut: Optional<Int>
+        get() = Optional.empty()
+
     override val generateFun: (Long) -> SomeDto = { id ->
         SomeDto(
             id.toString(),

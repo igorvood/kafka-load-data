@@ -1,5 +1,6 @@
 package ru.vood.kafkaloaddata.senders
 
+import kotlinx.coroutines.delay
 import org.slf4j.Logger
 import ru.vood.kafkaloaddata.config.prop.CountProperties
 import ru.vood.kafkaloaddata.dto.Identity
@@ -16,6 +17,8 @@ interface ToTopicLoader<T : Identity> {
     val generateFun: (Long) -> T
 
     val countProperties: CountProperties
+
+    val timeOut: Optional<Int>
     fun json(t: T): String
 
     fun beginTime() = Date().time
@@ -53,6 +56,8 @@ interface ToTopicLoader<T : Identity> {
 //                    Thread.sleep(30000)
 //                }
             }
+
+            timeOut.map { Thread.sleep( it.toLong()) }
 
 
         }

@@ -10,6 +10,7 @@ import ru.vood.kafkaloaddata.dto.Identity
 import ru.vood.kafkaloaddata.dto.SerialisationConst
 import ru.vood.kafkaloaddata.producer.MessageProducerInterface
 import ru.vood.kafkaloaddata.senders.ToTopicLoader
+import java.util.*
 
 @Service
 class dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdtoFlat(
@@ -23,6 +24,9 @@ class dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdtoFlat(
     override val logger: Logger = LoggerFactory.getLogger(
         dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdtoFlat::class.java
     )
+    override val timeOut: Optional<Int>
+        get() = Optional.empty()
+
 
     override val generateFun: (Long) -> MdmIdDto = { id ->
         MdmIdDto(

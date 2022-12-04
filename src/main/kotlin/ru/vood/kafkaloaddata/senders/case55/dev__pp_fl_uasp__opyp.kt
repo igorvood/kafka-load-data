@@ -10,6 +10,7 @@ import ru.vood.kafkaloaddata.dto.Identity
 import ru.vood.kafkaloaddata.dto.SerialisationConst
 import ru.vood.kafkaloaddata.producer.MessageProducerInterface
 import ru.vood.kafkaloaddata.senders.ToTopicLoader
+import java.util.*
 
 @Service
 class dev__pp_fl_uasp__opyp(
@@ -24,6 +25,8 @@ class dev__pp_fl_uasp__opyp(
         dev__pp_fl_uasp__opyp::class.java
     )
 
+    override val timeOut: Optional<Int>
+        get() = Optional.empty()
     override val generateFun: (Long) -> PackageServiceInDto = { id ->
         PackageServiceInDto(
             "OPERATION_ID" + id.toString(),

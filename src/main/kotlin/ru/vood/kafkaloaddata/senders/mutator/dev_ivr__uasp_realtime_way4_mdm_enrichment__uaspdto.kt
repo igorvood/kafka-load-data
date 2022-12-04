@@ -40,6 +40,10 @@ class dev_ivr__uasp_realtime_way4_mdm_enrichment__uaspdto(
             )
     }
 
+    override val timeOut: Optional<Int>
+        get() = Optional.empty()
+
+
     override fun json(t: SomeDto): String = SerialisationConst.customJson.encodeToString(t)
 
 }

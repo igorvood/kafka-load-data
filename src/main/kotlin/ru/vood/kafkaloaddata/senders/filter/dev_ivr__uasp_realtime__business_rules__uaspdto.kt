@@ -37,6 +37,9 @@ class dev_ivr__uasp_realtime__business_rules__uaspdto(
 
             )
     }
+    override val timeOut: Optional<Int>
+        get() = Optional.empty()
+
 
     override fun json(t: SomeDto): String = SerialisationConst.customJson.encodeToString(t)
 

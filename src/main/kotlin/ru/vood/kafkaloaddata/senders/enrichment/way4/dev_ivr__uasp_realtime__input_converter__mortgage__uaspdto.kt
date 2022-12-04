@@ -24,6 +24,10 @@ class dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto(
     override val logger: Logger =
         LoggerFactory.getLogger(dev_ivr__uasp_realtime__input_converter__mortgage__uaspdtoFlat::class.java)
 
+    override val timeOut: Optional<Int>
+        get() = Optional.empty()
+
+
     override val generateFun: (Long) -> SomeDto = { id ->
         SomeDto(
             "global_id_$id",
