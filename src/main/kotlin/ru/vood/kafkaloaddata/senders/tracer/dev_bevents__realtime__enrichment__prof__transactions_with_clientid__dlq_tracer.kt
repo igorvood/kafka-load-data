@@ -13,13 +13,13 @@ import ru.vood.kafkaloaddata.senders.enrichment.way4.dev_ivr__uasp_realtime__inp
 import java.util.*
 
 @Service
-class dev_rto_batch_ca_deposit_account_case_71_json_converted (
+class dev_bevents__realtime__enrichment__prof__transactions_with_clientid__dlq_tracer (
     override val messageProducer: MessageProducerInterface<String, String>,
     override val countProperties: CountProperties
 ) : ToTopicLoader<SomeDto> {
 
     override val topicName: String
-        get() = "dev_rto_batch_ca_deposit_account_case_71_json_converted"
+        get() = "dev_bevents__realtime__enrichment__prof__transactions_with_clientid__dlq"
 
     override val logger: Logger = LoggerFactory.getLogger(
         dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto::class.java

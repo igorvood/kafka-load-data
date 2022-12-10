@@ -20,7 +20,7 @@ send:
   kafka:
     cnt:
       userCnt: 1000000
-      totalSendRecCnt: 1000
+      totalSendRecCnt: 100
 case:
   caseList:
 #    - name: case55

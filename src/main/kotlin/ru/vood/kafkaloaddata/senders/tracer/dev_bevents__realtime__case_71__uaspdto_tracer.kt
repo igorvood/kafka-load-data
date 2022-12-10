@@ -13,13 +13,13 @@ import ru.vood.kafkaloaddata.senders.enrichment.way4.dev_ivr__uasp_realtime__inp
 import java.util.*
 
 @Service
-class dev_ivr__uasp_realtime__mdm_enrichment__for_additional_enrichment__uaspdto_tracer (
+class dev_bevents__realtime__case_71__uaspdto_tracer (
     override val messageProducer: MessageProducerInterface<String, String>,
     override val countProperties: CountProperties
 ) : ToTopicLoader<SomeDto> {
 
     override val topicName: String
-        get() = "dev_ivr__uasp_realtime__mdm_enrichment__for_additional_enrichment__uaspdto"
+        get() = "dev_bevents__realtime__case_71__uaspdto"
 
     override val logger: Logger = LoggerFactory.getLogger(
         dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto::class.java

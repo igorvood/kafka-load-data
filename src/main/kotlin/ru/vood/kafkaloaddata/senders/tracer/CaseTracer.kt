@@ -6,9 +6,9 @@ import ru.vood.kafkaloaddata.senders.CaseRunner
 
 @Service
 class CaseTracer (
-    val dev_ivr__uasp_realtime__mdm_enrichment__for_additional_enrichment__uaspdto_tracer: dev_ivr__uasp_realtime__mdm_enrichment__for_additional_enrichment__uaspdto_tracer,
-    val dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto_tracer: dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto_tracer,
-    val dev_rto_batch_ca_deposit_account_case_71_json_converted: dev_rto_batch_ca_deposit_account_case_71_json_converted,
+    val dev_bevents__realtime__case_71__uaspdto_tracer: dev_bevents__realtime__case_71__uaspdto_tracer,
+    val dev_bevents__batch__ca_regulatory_client_id_of_profile__json_converted_tracer: dev_bevents__batch__ca_regulatory_client_id_of_profile__json_converted_tracer,
+    val dev_bevents__realtime__enrichment__prof__transactions_with_clientid__dlq_tracer: dev_bevents__realtime__enrichment__prof__transactions_with_clientid__dlq_tracer,
 ) : CaseRunner {
 
 
@@ -17,9 +17,9 @@ class CaseTracer (
 
     override fun runCase() {
         crScope.launch {
-            launch { dev_ivr__uasp_realtime__mdm_enrichment__for_additional_enrichment__uaspdto_tracer.loadTopic() }
+            launch { dev_bevents__realtime__case_71__uaspdto_tracer.loadTopic() }
 //            launch { dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto_tracer.loadTopic() }
-            launch { dev_rto_batch_ca_deposit_account_case_71_json_converted.loadTopic() }
+            launch { dev_bevents__realtime__enrichment__prof__transactions_with_clientid__dlq_tracer.loadTopic() }
         }
     }
 }
