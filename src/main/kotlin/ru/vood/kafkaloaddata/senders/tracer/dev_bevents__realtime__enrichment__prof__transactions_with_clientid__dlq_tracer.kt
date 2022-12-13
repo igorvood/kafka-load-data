@@ -40,7 +40,7 @@ class dev_bevents__realtime__enrichment__prof__transactions_with_clientid__dlq_t
         )
     }
     override val timeOut: Optional<Int>
-        get() = Optional.of(5000)
+        get() = Optional.of(7000)
 
     override fun json(t: SomeDto): String = SerialisationConst.customJson.encodeToString(t)
 
