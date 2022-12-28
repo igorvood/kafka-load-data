@@ -20,15 +20,16 @@ send:
   kafka:
     cnt:
       userCnt: 1000000
-      totalSendRecCnt: 100
+      totalSendRecCnt: 10
 case:
   caseList:
 #    - name: case55
 #    - name: caseWay4
 #    - name: caseWay4Flat
-    - name: caseTracer
+#    - name: caseTracer
 #    - name: mutatorRunner
 #    - name: filterRunner
+     - name: case68
 
 #logging:
 #  level:
