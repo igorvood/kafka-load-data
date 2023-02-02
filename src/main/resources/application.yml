@@ -23,7 +23,8 @@ send:
       totalSendRecCnt: 1
 case:
   caseList:
-    - name: beventsStreamingAggregateFirstSalary
+#    - name: beventsStreamingAggregateFirstSalary
+    - name: inputConvertorProfile
 #    - name: moduleVector
 #    - name: case68Agreement
 #    - name: case55
