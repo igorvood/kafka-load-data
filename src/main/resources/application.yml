@@ -24,9 +24,9 @@ send:
 case:
   caseList:
 #    - name: beventsStreamingAggregateFirstSalary
-    - name: inputConvertorProfile
+#    - name: inputConvertorProfile
 #    - name: moduleVector
-#    - name: case68Agreement
+    - name: case68Agreement
 #    - name: case55
 #    - name: caseWay4
 #    - name: caseWay4Flat
