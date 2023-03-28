@@ -7,7 +7,7 @@ import ru.vood.kafkaloaddata.senders.CaseRunner
 
 @Service
 class FilterRunner(
-    val dev_ivr__uasp_realtime__business_rules__uaspdto: dev_ivr__uasp_realtime__business_rules__uaspdto
+        val dev_ivr__uasp_realtime__business_rules__uaspdto: dev_ivr__uasp_realtime__business_rules__uaspdto
 ) : CaseRunner {
 
     private val job: CompletableJob = SupervisorJob()

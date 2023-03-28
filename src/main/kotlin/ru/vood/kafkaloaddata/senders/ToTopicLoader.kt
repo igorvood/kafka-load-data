@@ -41,9 +41,9 @@ interface ToTopicLoader<T : Identity> {
 
 //            logger.info("Send ${json(newDto)}")
             messageProducer.sendMessage(
-                topicName,
-                newDto.id(),
-                json(newDto)
+                    topicName,
+                    newDto.id(),
+                    json(newDto)
             )
 
             if (cnt.toInt() % batchSize == 0) {
@@ -56,7 +56,7 @@ interface ToTopicLoader<T : Identity> {
 //                }
             }
 
-            timeOut.map { Thread.sleep( it.toLong()) }
+            timeOut.map { Thread.sleep(it.toLong()) }
 
 
         }

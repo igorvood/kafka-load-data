@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service
 @Service
 @Scope("prototype")
 class MessageProducer(
-    private val kafkaTemplate: KafkaTemplate<String?, String>
+        private val kafkaTemplate: KafkaTemplate<String?, String>
 ) : MessageProducerInterface<String, String> {
 
     override fun sendMessage(topicName: String, key: String?, message: String) {

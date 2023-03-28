@@ -14,20 +14,20 @@ import java.util.*
 
 @Service
 class dev_ivr__uasp_realtime__input_converter__mortgage__uaspdtoFlat(
-    override val messageProducer: MessageProducerInterface<String, String>,
-    override val countProperties: CountProperties
+        override val messageProducer: MessageProducerInterface<String, String>,
+        override val countProperties: CountProperties
 ) : ToTopicLoader<MortageDto> {
 
     override val topicName: String
         get() = "dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto"
 
     override val logger: Logger =
-        LoggerFactory.getLogger(dev_ivr__uasp_realtime__input_converter__mortgage__uaspdtoFlat::class.java)
+            LoggerFactory.getLogger(dev_ivr__uasp_realtime__input_converter__mortgage__uaspdtoFlat::class.java)
 
     override val generateFun: (Long) -> MortageDto = { id ->
         MortageDto(
-            id.toString(),
-            true,
+                id.toString(),
+                true,
         )
     }
     override val timeOut: Optional<Int>
@@ -40,8 +40,8 @@ class dev_ivr__uasp_realtime__input_converter__mortgage__uaspdtoFlat(
 
 @Serializable
 data class MortageDto(
-    val id1: String,
-    val is_mortgage: Boolean
+        val id1: String,
+        val is_mortgage: Boolean
 ) : Identity {
     override fun id(): String = id1
 }

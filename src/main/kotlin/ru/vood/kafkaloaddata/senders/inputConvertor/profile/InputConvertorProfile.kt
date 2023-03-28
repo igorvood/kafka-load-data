@@ -6,7 +6,7 @@ import ru.vood.kafkaloaddata.senders.CaseRunner
 
 @Service
 class InputConvertorProfile(
-    val profile_tx_out: profile_tx_out,
+        val profile_tx_out: profile_tx_out,
 ) : CaseRunner {
 
 

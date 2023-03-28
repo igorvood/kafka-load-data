@@ -13,14 +13,14 @@ import java.util.*
 
 @Service
 class dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto(
-    override val messageProducer: MessageProducerInterface<String, String>,
-    override val countProperties: CountProperties
+        override val messageProducer: MessageProducerInterface<String, String>,
+        override val countProperties: CountProperties
 ) : ToTopicLoader<SomeDto> {
 
     override val topicName: String
         get() = "dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto"
     override val logger: Logger = LoggerFactory.getLogger(
-        dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto::class.java
+            dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto::class.java
     )
     override val timeOut: Optional<Int>
         get() = Optional.empty()
@@ -28,16 +28,16 @@ class dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto(
 
     override val generateFun: (Long) -> SomeDto = { id ->
         SomeDto(
-            id.toString(),
-            mutableMapOf(),
-            mutableMapOf(),
-            mutableMapOf(),
-            mutableMapOf(),
-            mutableMapOf(),
-            mutableMapOf(),
-            mutableMapOf(),
-            id.toString(),
-            Calendar.getInstance().timeInMillis,
+                id.toString(),
+                mutableMapOf(),
+                mutableMapOf(),
+                mutableMapOf(),
+                mutableMapOf(),
+                mutableMapOf(),
+                mutableMapOf(),
+                mutableMapOf(),
+                id.toString(),
+                Calendar.getInstance().timeInMillis,
         )
     }
 

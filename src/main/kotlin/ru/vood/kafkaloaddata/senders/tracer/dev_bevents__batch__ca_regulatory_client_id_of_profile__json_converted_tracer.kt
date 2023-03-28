@@ -14,20 +14,20 @@ import ru.vood.kafkaloaddata.senders.enrichment.way4.dev_ivr__uasp_realtime__inp
 import java.util.*
 
 @Service
-class dev_bevents__batch__ca_regulatory_client_id_of_profile__json_converted_tracer (
-    override val messageProducer: MessageProducerInterface<String, String>,
-    override val countProperties: CountProperties
+class dev_bevents__batch__ca_regulatory_client_id_of_profile__json_converted_tracer(
+        override val messageProducer: MessageProducerInterface<String, String>,
+        override val countProperties: CountProperties
 ) : ToTopicLoader<InetUUID> {
 
     override val topicName: String
         get() = "dev_bevents__batch__ca_regulatory_client_id_of_profile__json_converted"
     override val logger: Logger = LoggerFactory.getLogger(
-        dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto::class.java
+            dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto::class.java
     )
 
     override val generateFun: (Long) -> InetUUID = { id ->
         InetUUID(
-            id.toString(),
+                id.toString(),
         )
     }
     override val timeOut: Optional<Int>
@@ -39,6 +39,6 @@ class dev_bevents__batch__ca_regulatory_client_id_of_profile__json_converted_tra
 }
 
 @Serializable
-data class InetUUID(val id1: String): Identity{
-    override fun id(): String =id1
+data class InetUUID(val id1: String) : Identity {
+    override fun id(): String = id1
 }
