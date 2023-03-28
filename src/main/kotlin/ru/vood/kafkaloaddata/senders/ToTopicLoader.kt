@@ -1,6 +1,5 @@
 package ru.vood.kafkaloaddata.senders
 
-import kotlinx.coroutines.delay
 import org.slf4j.Logger
 import ru.vood.kafkaloaddata.config.prop.CountProperties
 import ru.vood.kafkaloaddata.dto.Identity

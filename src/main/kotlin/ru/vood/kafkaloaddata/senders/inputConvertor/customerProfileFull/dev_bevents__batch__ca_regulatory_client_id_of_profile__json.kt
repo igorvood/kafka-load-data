@@ -1,11 +1,9 @@
 package ru.vood.kafkaloaddata.senders.inputConvertor.customerProfileFull
 
-import kotlinx.serialization.encodeToString
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import ru.vood.kafkaloaddata.config.prop.CountProperties
-import ru.vood.kafkaloaddata.dto.SerialisationConst
 import ru.vood.kafkaloaddata.dto.SomeDto
 import ru.vood.kafkaloaddata.producer.MessageProducerInterface
 import ru.vood.kafkaloaddata.senders.ToTopicLoader

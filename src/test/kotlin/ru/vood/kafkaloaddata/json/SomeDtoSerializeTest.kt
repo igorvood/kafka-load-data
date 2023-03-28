@@ -18,5 +18,17 @@ class SomeDtoSerializeTest {
 
         println(customJson.decodeFromString<SomeDto>(str))
 
+        val encodeToString = customJson.encodeToString(QWER(1, 2.0))
+        println(encodeToString)
+
+        val parseToJsonElement = customJson.parseToJsonElement(encodeToString)
+
+        println(parseToJsonElement)
+
     }
 }
+
+@kotlinx.serialization.Serializable
+data class QWER(val int: Int,
+                val Double: Double,
+)
