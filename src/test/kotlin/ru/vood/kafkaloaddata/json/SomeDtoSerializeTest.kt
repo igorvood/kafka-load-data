@@ -1,17 +1,16 @@
 package ru.vood.kafkaloaddata.json
 
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
 import org.junit.jupiter.api.Test
 import ru.vood.kafkaloaddata.dto.SerialisationConst.customJson
 import ru.vood.kafkaloaddata.dto.SomeDto
-import java.math.BigDecimal
 
 class SomeDtoSerializeTest {
 
     @Test
-    fun serialisationTest(){
-        val someDto = SomeDto("str", mutableMapOf("asdas" to 1), mutableMapOf(),mutableMapOf(),mutableMapOf(),mutableMapOf(),mutableMapOf(),mutableMapOf(),"Sad",0/*, BigDecimal(12)*/)
+    fun serialisationTest() {
+        val someDto = SomeDto("str", mutableMapOf("asdas" to 1), mutableMapOf(), mutableMapOf(), mutableMapOf(), mutableMapOf(), mutableMapOf(), mutableMapOf(), "Sad", 0/*, BigDecimal(12)*/)
         val str = customJson.encodeToString(someDto)
 
         println(str)
@@ -29,6 +28,7 @@ class SomeDtoSerializeTest {
 }
 
 @kotlinx.serialization.Serializable
-data class QWER(val int: Int,
-                val Double: Double,
+data class QWER(
+        val int: Int,
+        val Double: Double,
 )
