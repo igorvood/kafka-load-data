@@ -25,7 +25,9 @@ case:
   caseList:
 #    - name: beventsStreamingAggregateFirstSalary
 #    - name: inputConvertorProfile
-    - name: inputConvertorCustomerProfileFull
+#    - name: inputConvertorCustomerProfileFull
+    - name: inputConvertorCustomerProfile
+
 #    - name: moduleVector
 #    - name: case68Agreement
 #    - name: case55
