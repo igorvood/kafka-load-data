@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConstructorBinding
 @ConstructorBinding
 @ConfigurationProperties(prefix = "case")
 data class CaseListRunProperties(
-    val caseList: List<Case>
+        val caseList: List<Case>
 ) {
     data class Case(val name: String)
 }

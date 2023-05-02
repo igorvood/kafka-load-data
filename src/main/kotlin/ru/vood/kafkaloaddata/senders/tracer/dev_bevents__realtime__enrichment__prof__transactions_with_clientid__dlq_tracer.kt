@@ -13,30 +13,30 @@ import ru.vood.kafkaloaddata.senders.enrichment.way4.dev_ivr__uasp_realtime__inp
 import java.util.*
 
 @Service
-class dev_bevents__realtime__enrichment__prof__transactions_with_clientid__dlq_tracer (
-    override val messageProducer: MessageProducerInterface<String, String>,
-    override val countProperties: CountProperties
+class dev_bevents__realtime__enrichment__prof__transactions_with_clientid__dlq_tracer(
+        override val messageProducer: MessageProducerInterface<String, String>,
+        override val countProperties: CountProperties
 ) : ToTopicLoader<SomeDto> {
 
     override val topicName: String
         get() = "dev_bevents__realtime__enrichment__prof__transactions_with_clientid__dlq"
 
     override val logger: Logger = LoggerFactory.getLogger(
-        dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto::class.java
+            dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto::class.java
     )
 
     override val generateFun: (Long) -> SomeDto = { id ->
         SomeDto(
-            id.toString(),
-            mutableMapOf(),
-            mutableMapOf(),
-            mutableMapOf(),
-            mutableMapOf(),
-            mutableMapOf(),
-            mutableMapOf(),
-            mutableMapOf(),
-            id.toString(),
-            Calendar.getInstance().timeInMillis,
+                id.toString(),
+                mutableMapOf(),
+                mutableMapOf(),
+                mutableMapOf(),
+                mutableMapOf(),
+                mutableMapOf(),
+                mutableMapOf(),
+                mutableMapOf(),
+                id.toString(),
+                Calendar.getInstance().timeInMillis,
         )
     }
     override val timeOut: Optional<Int>

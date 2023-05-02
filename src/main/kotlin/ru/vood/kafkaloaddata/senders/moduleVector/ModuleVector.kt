@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service
 import ru.vood.kafkaloaddata.senders.CaseRunner
 
 @Service
-class ModuleVector (
-    val dev_bevents__realtime__case_71__uaspdto_tracer: dev_bevents__realtime__filter_first_salary__uaspdto,
+class ModuleVector(
+        val dev_bevents__realtime__case_71__uaspdto_tracer: dev_bevents__realtime__filter_first_salary__uaspdto,
 ) : CaseRunner {
 
 

@@ -6,9 +6,9 @@ import ru.vood.kafkaloaddata.senders.CaseRunner
 
 @Service
 class CaseWay4(
-    val dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdtoFlat: dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdto,
-    val dev_ivr__uasp_realtime__input_converter__mortgage__uaspdtoFlat: dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto,
-    val dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto: dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto
+        val dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdtoFlat: dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdto,
+        val dev_ivr__uasp_realtime__input_converter__mortgage__uaspdtoFlat: dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto,
+        val dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto: dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto
 ) : CaseRunner {
 
 

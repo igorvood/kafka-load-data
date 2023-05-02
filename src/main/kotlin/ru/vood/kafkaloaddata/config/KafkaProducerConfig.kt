@@ -48,8 +48,8 @@ class KafkaProducerConfig {
 
 
         mutableMap.put(
-            ProducerConfig.PARTITIONER_CLASS_CONFIG,
-            DefaultPartitioner::class.java
+                ProducerConfig.PARTITIONER_CLASS_CONFIG,
+                DefaultPartitioner::class.java
         )
 
         return DefaultKafkaProducerFactory(mutableMap)

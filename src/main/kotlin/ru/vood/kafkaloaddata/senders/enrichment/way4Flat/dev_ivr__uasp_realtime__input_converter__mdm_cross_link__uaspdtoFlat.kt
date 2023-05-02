@@ -14,15 +14,15 @@ import java.util.*
 
 @Service
 class dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdtoFlat(
-    override val messageProducer: MessageProducerInterface<String, String>,
-    override val countProperties: CountProperties
+        override val messageProducer: MessageProducerInterface<String, String>,
+        override val countProperties: CountProperties
 ) : ToTopicLoader<MdmIdDto> {
 
     override val topicName: String
         get() = "dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdto"
 
     override val logger: Logger = LoggerFactory.getLogger(
-        dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdtoFlat::class.java
+            dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdtoFlat::class.java
     )
     override val timeOut: Optional<Int>
         get() = Optional.empty()
@@ -30,8 +30,8 @@ class dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdtoFlat(
 
     override val generateFun: (Long) -> MdmIdDto = { id ->
         MdmIdDto(
-            id.toString(),
-            "global_id_$id"
+                id.toString(),
+                "global_id_$id"
         )
     }
 
@@ -41,8 +41,8 @@ class dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdtoFlat(
 
 @Serializable
 data class MdmIdDto(
-    val id: String,
-    val global_id1: String,
+        val id: String,
+        val global_id1: String,
 ) : Identity {
     override fun id(): String = id
 }

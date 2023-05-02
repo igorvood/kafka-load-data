@@ -14,15 +14,15 @@ import java.util.*
 
 @Service
 class dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto(
-    override val messageProducer: MessageProducerInterface<String, String>,
-    override val countProperties: CountProperties
+        override val messageProducer: MessageProducerInterface<String, String>,
+        override val countProperties: CountProperties
 ) : ToTopicLoader<SomeDto> {
 
     override val topicName: String
         get() = "dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto"
 
     override val logger: Logger =
-        LoggerFactory.getLogger(dev_ivr__uasp_realtime__input_converter__mortgage__uaspdtoFlat::class.java)
+            LoggerFactory.getLogger(dev_ivr__uasp_realtime__input_converter__mortgage__uaspdtoFlat::class.java)
 
     override val timeOut: Optional<Int>
         get() = Optional.empty()
@@ -30,18 +30,18 @@ class dev_ivr__uasp_realtime__input_converter__mortgage__uaspdto(
 
     override val generateFun: (Long) -> SomeDto = { id ->
         SomeDto(
-            "global_id_$id",
-            mutableMapOf(),
-            mutableMapOf(),
-            mutableMapOf(),
-            mutableMapOf(),
-            mutableMapOf(),
-            mutableMapOf(),
-            mutableMapOf("is_mortgage" to true),
-            id.toString(),
-            Calendar.getInstance().timeInMillis,
+                "global_id_$id",
+                mutableMapOf(),
+                mutableMapOf(),
+                mutableMapOf(),
+                mutableMapOf(),
+                mutableMapOf(),
+                mutableMapOf(),
+                mutableMapOf("is_mortgage" to true),
+                id.toString(),
+                Calendar.getInstance().timeInMillis,
 
-            )
+                )
     }
 
     override fun json(t: SomeDto): String = SerialisationConst.customJson.encodeToString(t)

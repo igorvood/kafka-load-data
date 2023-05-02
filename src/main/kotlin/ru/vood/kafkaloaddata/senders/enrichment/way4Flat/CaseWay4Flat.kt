@@ -7,9 +7,9 @@ import ru.vood.kafkaloaddata.senders.enrichment.way4.dev_ivr__uasp_realtime__inp
 
 @Service
 class CaseWay4Flat(
-    val dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdtoFlat: dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdtoFlat,
-    val dev_ivr__uasp_realtime__input_converter__mortgage__uaspdtoFlat: dev_ivr__uasp_realtime__input_converter__mortgage__uaspdtoFlat,
-    val dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto: dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto
+        val dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdtoFlat: dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdtoFlat,
+        val dev_ivr__uasp_realtime__input_converter__mortgage__uaspdtoFlat: dev_ivr__uasp_realtime__input_converter__mortgage__uaspdtoFlat,
+        val dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto: dev_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto
 ) : CaseRunner {
 
 

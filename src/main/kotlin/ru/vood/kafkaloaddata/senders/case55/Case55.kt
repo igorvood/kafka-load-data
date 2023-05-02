@@ -6,7 +6,7 @@ import ru.vood.kafkaloaddata.senders.CaseRunner
 
 @Service
 class Case55(
-    val dev__pp_fl_uasp__opyp: dev__pp_fl_uasp__opyp,
+        val dev__pp_fl_uasp__opyp: dev__pp_fl_uasp__opyp,
 ) : CaseRunner {
 
 

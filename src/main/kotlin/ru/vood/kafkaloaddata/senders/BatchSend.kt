@@ -8,22 +8,22 @@ import ru.vood.kafkaloaddata.config.prop.CaseListRunProperties
 
 @Service
 class BatchSend(
-    val caseRunners: Map<String, CaseRunner>,
-    val caseListRunProperties: CaseListRunProperties
+        val caseRunners: Map<String, CaseRunner>,
+        val caseListRunProperties: CaseListRunProperties
 ) : CommandLineRunner {
 
 
     private fun validate() {
         val notFoundKeys = caseListRunProperties.caseList.map { it.name }
-            .filter { !caseRunners.containsKey(it) }
+                .filter { !caseRunners.containsKey(it) }
 
         if (notFoundKeys.isNotEmpty()) {
             throw IllegalStateException(
-                "${notFoundKeys.size} Cases  $notFoundKeys not found in\n${
-                    caseRunners.keys.joinToString(
-                        "\n"
-                    )
-                }"
+                    "${notFoundKeys.size} Cases  $notFoundKeys not found in\n${
+                        caseRunners.keys.joinToString(
+                                "\n"
+                        )
+                    }"
             )
         }
 
@@ -33,13 +33,13 @@ class BatchSend(
     override fun run(vararg args: String?) {
         validate()
         caseListRunProperties.caseList
-            .forEach { caseName ->
-                Option.fromNullable(caseRunners.get(caseName.name))
-                    .map { srv -> srv.runCase() }
-                    .orElse {
-                        throw IllegalStateException("Case $caseName not found in\n${caseRunners.keys.joinToString("\n")}")
-                    }
+                .forEach { caseName ->
+                    Option.fromNullable(caseRunners.get(caseName.name))
+                            .map { srv -> srv.runCase() }
+                            .orElse {
+                                throw IllegalStateException("Case $caseName not found in\n${caseRunners.keys.joinToString("\n")}")
+                            }
 
-            }
+                }
     }
 }

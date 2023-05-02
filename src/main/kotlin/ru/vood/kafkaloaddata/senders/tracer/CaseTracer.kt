@@ -5,10 +5,10 @@ import org.springframework.stereotype.Service
 import ru.vood.kafkaloaddata.senders.CaseRunner
 
 @Service
-class CaseTracer (
-    val dev_bevents__realtime__case_71__uaspdto_tracer: dev_bevents__realtime__case_71__uaspdto_tracer,
-    val dev_bevents__batch__ca_regulatory_client_id_of_profile__json_converted_tracer: dev_bevents__batch__ca_regulatory_client_id_of_profile__json_converted_tracer,
-    val dev_bevents__realtime__enrichment__prof__transactions_with_clientid__dlq_tracer: dev_bevents__realtime__enrichment__prof__transactions_with_clientid__dlq_tracer,
+class CaseTracer(
+        val dev_bevents__realtime__case_71__uaspdto_tracer: dev_bevents__realtime__case_71__uaspdto_tracer,
+        val dev_bevents__batch__ca_regulatory_client_id_of_profile__json_converted_tracer: dev_bevents__batch__ca_regulatory_client_id_of_profile__json_converted_tracer,
+        val dev_bevents__realtime__enrichment__prof__transactions_with_clientid__dlq_tracer: dev_bevents__realtime__enrichment__prof__transactions_with_clientid__dlq_tracer,
 ) : CaseRunner {
 
 

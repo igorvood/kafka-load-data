@@ -6,7 +6,7 @@ import ru.vood.kafkaloaddata.senders.CaseRunner
 
 @Service
 class BeventsStreamingAggregateFirstSalary(
-    val dev_bevents__realtime__enrichment_first_salary_transactions__uaspdto: dev_bevents__realtime__enrichment_first_salary_transactions__uaspdto,
+        val dev_bevents__realtime__enrichment_first_salary_transactions__uaspdto: dev_bevents__realtime__enrichment_first_salary_transactions__uaspdto,
 ) : CaseRunner {
 
 

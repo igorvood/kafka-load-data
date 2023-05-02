@@ -14,15 +14,15 @@ import java.util.*
 
 @Service
 class dev_bevents_cft_way4_profile_udds_before_mdm_rate_case68_uaspdto(
-    override val messageProducer: MessageProducerInterface<String, String>,
-    override val countProperties: CountProperties
+        override val messageProducer: MessageProducerInterface<String, String>,
+        override val countProperties: CountProperties
 ) : ToTopicLoader<SomeDto> {
 
     override val topicName: String
         get() = "dev_bevents_cft_way4_profile_udds_before_mdm_rate_case68_uaspdto"
 
     override val logger: Logger = LoggerFactory.getLogger(
-        dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdtoFlat::class.java
+            dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdtoFlat::class.java
     )
 
     override val timeOut: Optional<Int>
@@ -30,16 +30,16 @@ class dev_bevents_cft_way4_profile_udds_before_mdm_rate_case68_uaspdto(
 
     override val generateFun: (Long) -> SomeDto = { id ->
         SomeDto(
-            id.toString(),
-            mutableMapOf(),
-            mutableMapOf(),
-            mutableMapOf(),
-            mutableMapOf(),
-            mutableMapOf(),
-            mutableMapOf("global_id" to "global_id_$id"),
-            mutableMapOf(),
-            id.toString(),
-            Calendar.getInstance().timeInMillis,
+                id.toString(),
+                mutableMapOf(),
+                mutableMapOf(),
+                mutableMapOf(),
+                mutableMapOf(),
+                mutableMapOf(),
+                mutableMapOf("global_id" to "global_id_$id"),
+                mutableMapOf(),
+                id.toString(),
+                Calendar.getInstance().timeInMillis,
         )
     }
 

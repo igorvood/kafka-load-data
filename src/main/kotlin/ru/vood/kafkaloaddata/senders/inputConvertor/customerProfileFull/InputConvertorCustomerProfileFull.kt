@@ -6,7 +6,7 @@ import ru.vood.kafkaloaddata.senders.CaseRunner
 
 @Service
 class InputConvertorCustomerProfileFull(
-    val dev_bevents__batch__ca_regulatory_client_id_of_profile__json: dev_bevents__batch__ca_regulatory_client_id_of_profile__json,
+        val dev_bevents__batch__ca_regulatory_client_id_of_profile__json: dev_bevents__batch__ca_regulatory_client_id_of_profile__json,
 ) : CaseRunner {
 
 
